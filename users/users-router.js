@@ -7,7 +7,10 @@ router.get('/', (req, res) => {
     .then(users => {
       res.json(users);
     })
-    .catch(err => res.send(err));
+    .catch(error => {
+        console.log(error);
+        res.status(500).json({ error: 'Your request could not be fulfilled'});
+    });
 });
 
 module.exports = router;
